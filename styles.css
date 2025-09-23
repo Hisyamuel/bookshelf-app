@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    background-color: navy;
+    padding: 20px 0;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+body {
+    display: block;
+    background-color: purple;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+section {
+    margin: 0 auto;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 600px;
+    gap: 1.5em;
+    background-color: navy;
+    color: yellow;
+    justify-content: center;
+    border-radius: 1.2em;
+    border: 2px solid white;
+    margin-bottom: 40px;
+}
+
+[data-testid="bookItem"]>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 10px 20px;
+}
+
+[data-testid="bookItem"] {
+    padding-left: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    padding: 20px;
+}
+
+#bookForm {
+    display: flex;
+    flex-direction: column;
+}
+
+[data-testid="bookFormIsCompleteCheckbox"] {
+    accent-color: greenyellow;
+}
+
+#bookFormSubmit,
+#searchSubmit {
+    padding: 10px 20px 10px;
+    background-color: rgb(61, 98, 167);
+    color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#bookFormSubmit:hover {
+    color: black;
+    background-color: aqua;
+    transform: scale(1.05);
+}
+
+#searchSubmit:hover {
+    color: black;
+    background-color: aqua;
+    transform: scale(1.05);
+}
+
+#searchBook {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#incompleteBookList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: navy;
+    color: yellow;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 20px 0 20px 0;
+    ;
+    border-radius: 1.2em;
+    border: 2px solid yellow;
+}
+
+#completeBookList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: navy;
+    color: yellow;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 20px 0 20px 0;
+    ;
+    border-radius: 1.2em;
+    border: 2px solid yellow;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+    color: black;
+    background-color: greenyellow;
+    transform: scale(1.05);
+}
+
+[data-testid="bookItemDeleteButton"] {
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+    color: black;
+    background-color: red;
+    transform: scale(1.05);
+}
+
+[data-testid="bookItemEditButton"] {
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+    color: black;
+    background-color: yellow;
+    transform: scale(1.05);
+}
