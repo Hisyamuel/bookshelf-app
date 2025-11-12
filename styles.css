@@ -228,3 +228,9 @@ footer {
     box-shadow: var(--box-shadow);
     font-size: 0.9rem;
 }
+
+@media (max-width: 475px) {
+    #searchBook {
+        width: 80%;
+    }
+}
