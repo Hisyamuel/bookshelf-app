@@ -233,4 +233,8 @@ footer {
     #searchBook {
         width: 80%;
     }
+
+    h2, #searchBookTitle, #searchSubmit {
+        font-size: 1rem;
+    }
 }
