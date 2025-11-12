@@ -231,10 +231,10 @@ footer {
 
 @media (max-width: 475px) {
     #searchBook {
-        width: 80%;
+        width: 90%;
     }
 
-    h2, #searchBookTitle, #searchSubmit {
-        font-size: 1rem;
+    #searchBookTitle, #searchSubmit {
+        font-size: 0.7rem;
     }
 }
