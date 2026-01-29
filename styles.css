@@ -2,7 +2,6 @@
 :root {
     --primary-bg: #2c2a4a;
     --secondary-bg: navy;
-    /*#4f4c7a;*/
     --header-bg: #1e1d32;
     --text-primary: #f5f5f5;
     --text-accent: #ffd700;
@@ -71,7 +70,7 @@ section {
     border: 1px solid var(--border-color);
 }
 
-/* --- Forms --- */
+/* Forms */
 form {
     display: flex;
     flex-direction: column;
@@ -129,7 +128,7 @@ div>label[for="bookFormIsComplete"] {
     accent-color: var(--text-accent);
 }
 
-/* --- Buttons --- */
+/* Buttons */
 button {
     cursor: pointer;
     border: none;
@@ -152,12 +151,12 @@ button {
 
 #bookFormSubmit:hover,
 #searchSubmit:hover {
-    background-color: #fff;
+    background-color: var(--text-primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* --- Book Lists --- */
+/* Book Lists */
 #incompleteBookList,
 #completeBookList {
     display: flex;
@@ -165,7 +164,7 @@ button {
     gap: 1.5rem;
 }
 
-[data-testid="bookItem"] {
+.book_item {
     background-color: var(--primary-bg);
     padding: 1.5rem;
     border-radius: var(--border-radius);
@@ -174,56 +173,55 @@ button {
     transition: all var(--transition-speed) ease;
 }
 
-[data-testid="bookItem"]:hover {
+.book_item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-[data-testid="bookItemTitle"] {
+.book_item h3 {
     font-family: var(--font-heading);
     color: var(--text-accent);
     margin-bottom: 0.5rem;
 }
 
-[data-testid="bookItemAuthor"],
-[data-testid="bookItemYear"] {
+.book_item p {
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     opacity: 0.9;
 }
 
-[data-testid="bookItem"]>div {
+.action {
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
     flex-wrap: wrap;
 }
 
-[data-testid="bookItem"] button {
+.action button {
     flex-grow: 1;
 }
 
-[data-testid="bookItemIsCompleteButton"] {
+.green {
     background-color: var(--accent-green);
 }
 
-[data-testid="bookItemIsCompleteButton"]:hover {
+.green:hover {
     background-color: #218838;
 }
 
-[data-testid="bookItemDeleteButton"] {
+.red {
     background-color: var(--accent-red);
 }
 
-[data-testid="bookItemDeleteButton"]:hover {
+.red:hover {
     background-color: #c82333;
 }
 
-[data-testid="bookItemEditButton"] {
+.yellow {
     background-color: var(--accent-orange);
 }
 
-[data-testid="bookItemEditButton"]:hover {
+.yellow:hover {
     background-color: #e66a00;
 }
 
@@ -235,6 +233,325 @@ footer {
     box-shadow: var(--box-shadow);
     font-size: 0.9rem;
 }
+
+/* ===========================
+   TOAST NOTIFICATIONS
+   =========================== */
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    min-width: 300px;
+    max-width: 400px;
+    padding: 16px 20px;
+    background: var(--primary-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.toast.hiding {
+    animation: slideOut 0.3s ease-out forwards;
+}
+
+.toast::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.toast.success::before {
+    background: #10b981;
+}
+
+.toast.error::before {
+    background: #ef4444;
+}
+
+.toast.info::before {
+    background: #3b82f6;
+}
+
+.toast-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.toast.success .toast-icon {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.toast.error .toast-icon {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.toast.info .toast-icon {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.toast-close:hover {
+    color: #4b5563;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+/* ===========================
+   CONFIRMATION DIALOG
+   =========================== */
+
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.confirm-overlay.hiding {
+    animation: fadeOut 0.2s ease-out forwards;
+}
+
+.confirm-dialog {
+    background: var(--primary-bg);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: scaleIn 0.2s ease-out;
+}
+
+.confirm-overlay.hiding .confirm-dialog {
+    animation: scaleOut 0.2s ease-out forwards;
+}
+
+.confirm-header {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.confirm-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.confirm-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-accent);
+    margin: 0;
+}
+
+.confirm-input {
+    display: block;
+    width: 100%;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-speed) ease;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.confirm-input:focus {
+    background-color: var(--text-primary);
+    color: var(--header-bg);
+    outline: none;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.confirm-message {
+    text-align: center;
+    font-size: 14px;
+    color: #b8c4de;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.confirm-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    outline: none;
+}
+
+.confirm-btn-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.confirm-btn-cancel:hover {
+    background: #e5e7eb;
+}
+
+.confirm-btn-confirm {
+    background: #ef4444;
+    color: white;
+}
+
+.confirm-btn-confirm:hover {
+    background: #dc2626;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .toast-container {
+        left: 10px;
+        right: 10px;
+        top: 10px;
+    }
+
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .confirm-dialog {
+        margin: 20px;
+    }
+}
+
 
 @media (max-width: 475px) {
     #searchBook {
