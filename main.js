@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     bookFormIsCompleteCheckbox.addEventListener('change', function () {
         const submitSpan = bookFormSubmit.querySelector('span');
-        submitSpan.innerText = this.checked ? 'Selesai dibaca' : 'Belum selesai dibaca';
+        submitSpan.innerHTML = this.checked ? '<b>Selesai dibaca</b>' : '<b>Belum selesai dibaca</b>';
     });
 
     bookForm.addEventListener('submit', function (event) {
