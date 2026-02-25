@@ -43,6 +43,8 @@ Proyek ini dibangun menggunakan teknologi web standar untuk memastikan performa 
 Aplikasi ini dikembangkan sebagai bagian dari portofolio pengembangan web untuk mendemonstrasikan kemampuan dalam manipulasi DOM dan pengelolaan penyimpanan data di sisi klien.
 
 **Pengembang:** [Nur Amali Hisyam](https://nuramalihisyam.netlify.app/)
+
+
 **Sosial Media:**
 - [LinkedIn](https://www.linkedin.com/in/nuramalihisyam)
 - [GitHub](https://github.com/Hisyamuel)
