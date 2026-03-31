@@ -237,7 +237,7 @@ footer {
     text-align: center;
     padding: 1rem 0;
     background-color: var(--header-bg);
-    color: var(--text-accent);
+    color: rgba(255, 255, 0, 0.599);
     box-shadow: var(--box-shadow);
     font-size: 0.9rem;
 }
